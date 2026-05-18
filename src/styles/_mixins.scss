@@ -1,0 +1,139 @@
+// ═══════════════════════════════════════════════════════════════════
+// M04 · Sketchbook Mixins
+// The reusable "motifs" of the notebook aesthetic.
+// ═══════════════════════════════════════════════════════════════════
+@use "tokens" as *;
+
+// ── LAYOUT ─────────────────────────────────────────────────────
+@mixin flex-col   { display: flex; flex-direction: column; }
+@mixin flex-row   { display: flex; flex-direction: row; }
+@mixin flex-center  { display: flex; align-items: center; justify-content: center; }
+@mixin flex-between { display: flex; align-items: center; justify-content: space-between; }
+@mixin flex-start   { display: flex; align-items: center; }
+
+@mixin respond-to($bp) {
+  @if $bp == sm { @media (min-width: $bp-sm) { @content; } }
+  @else if $bp == md { @media (min-width: $bp-md) { @content; } }
+  @else if $bp == lg { @media (min-width: $bp-lg) { @content; } }
+  @else if $bp == xl { @media (min-width: $bp-xl) { @content; } }
+}
+
+// ── ACCESSIBILITY ──────────────────────────────────────────────
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $red-pen;
+    outline-offset: 3px;
+  }
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SKETCHBOOK MOTIFS
+// ═══════════════════════════════════════════════════════════════
+
+// Paper grain — subtle dot texture overlay
+@mixin paper-grain {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(44, 62, 80, 0.028) 0.5px, transparent 1.5px),
+    radial-gradient(circle at 75% 75%, rgba(44, 62, 80, 0.02) 0.5px, transparent 1px);
+  background-size: 28px 28px, 36px 36px;
+  background-position: 0 0, 14px 18px;
+}
+
+// Notebook ruled lines — faint horizontals at consistent rhythm
+@mixin ruled-paper($line-color: $paper-line, $line-height: 32px) {
+  background-image: linear-gradient(
+    to bottom,
+    transparent calc(#{$line-height} - 1px),
+    #{$line-color} calc(#{$line-height} - 1px),
+    #{$line-color} #{$line-height},
+    transparent #{$line-height}
+  );
+  background-size: 100% #{$line-height};
+}
+
+// Plain paper card — white-ish surface on kraft bg
+@mixin paper-card {
+  background: $paper-cream;
+  border-radius: $radius-md;
+  box-shadow: $shadow-paper;
+  position: relative;
+}
+
+// Taped card — paper card with washi tape strips at top corners
+@mixin taped-card($tape-color: $tape-washi) {
+  @include paper-card;
+  padding: $space-6 $space-5 $space-5;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 64px;
+    height: 22px;
+    background: rgba(168, 200, 218, 0.78);
+    box-shadow: $shadow-tape;
+    border-radius: 1px;
+    z-index: 2;
+  }
+  &::before { inset-inline-start: 14%; transform: rotate(-3deg); }
+  &::after  { inset-inline-end:   14%; transform: rotate(2.5deg); }
+}
+
+// Sticky note — slight rotation, warm yellow bg, soft shadow
+@mixin sticky-note($bg: $highlight-pale, $rotation: -1.5deg) {
+  background: $bg;
+  padding: $space-4 $space-5;
+  transform: rotate($rotation);
+  box-shadow: $shadow-sticky;
+  position: relative;
+  font-family: $font-body;
+  border-radius: 2px;  // tiny rounding, not bookish
+}
+
+// Pen underline — solid red line under text
+@mixin pen-underline($color: $red-pen, $thickness: 3px) {
+  background-image: linear-gradient(to right, $color 0%, $color 100%);
+  background-position: 0 95%;
+  background-repeat: no-repeat;
+  background-size: 100% $thickness;
+  padding-bottom: 4px;
+}
+
+// Highlighter swipe — soft yellow background behind inline text
+@mixin highlighter($color: $highlight) {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    $color 40%,
+    $color 92%,
+    transparent 92%,
+    transparent 100%
+  );
+  padding: 0 4px;
+}
+
+// Pencil border — soft, low-key border
+@mixin pencil-border($color: $ink-blue-soft, $width: 1.5px) {
+  border: $width solid $color;
+  border-radius: $radius-md;
+}
+
+// Margin note — small handwritten-ish note in the side margin
+@mixin margin-note {
+  font-family: $font-script;
+  font-size: 18px;
+  color: $red-pen;
+  transform: rotate(-2deg);
+  display: inline-block;
+}

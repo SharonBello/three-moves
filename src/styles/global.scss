@@ -1,0 +1,95 @@
+// ═══════════════════════════════════════════════════════════════════
+// M04 · Global Styles
+// ═══════════════════════════════════════════════════════════════════
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-body;
+  color: $ink-blue;
+  background: $paper-kraft;
+  @include paper-grain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  direction: rtl;
+}
+
+// ── TYPOGRAPHY DEFAULTS ───────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: $weight-bold;
+  line-height: $leading-tight;
+  color: $ink-blue-dark;
+  letter-spacing: -0.01em;
+}
+
+p { line-height: $leading-body; }
+
+a {
+  color: $red-pen;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+// ── REDUCED MOTION ─────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PRINT STYLES (used by Section 8's LessonPlanCanvas for PDF export)
+// ═══════════════════════════════════════════════════════════════════
+@page {
+  size: A4;
+  margin: 20mm 18mm;
+}
+
+@media print {
+  body {
+    background: white !important;
+    background-image: none !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body * { visibility: hidden !important; }
+  .m04-print, .m04-print * { visibility: visible !important; }
+  .m04-print {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .m04-print-field {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a[href]::after { content: '' !important; }
+}

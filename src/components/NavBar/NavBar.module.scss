@@ -1,0 +1,92 @@
+.nav {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-3;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: $space-4;
+
+  @include respond-to(md) {
+    padding: $space-4 $space-6;
+  }
+}
+
+// ── BRAND ──────────────────────────────────────────────────────
+.brand {
+  @include flex-start;
+  gap: $space-3;
+}
+
+.brandTag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+
+.brandTitle {
+  font-family: $font-display;
+  font-size: $text-md;
+  color: $ink-blue-dark;
+  font-weight: $weight-bold;
+
+  @include respond-to(md) { font-size: $text-lg; }
+}
+
+// ── DOTS (8 sections) ──────────────────────────────────────────
+.dots {
+  @include flex-start;
+  gap: $space-2;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.dot {
+  @include flex-center;
+  @include focus-ring;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $paper-cream;
+  color: $ink-blue-soft;
+  font-family: $font-mono;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  text-decoration: none;
+  border: 1.5px solid $paper-cream-2;
+  transition: all $dur-fast $ease-out;
+
+  &:hover {
+    background: $white;
+    border-color: $pencil-light;
+    transform: translateY(-1px);
+  }
+}
+
+.dotActive {
+  background: $red-pen;
+  color: $white;
+  border-color: $red-pen-dark;
+  font-weight: $weight-bold;
+  transform: scale(1.1);
+
+  &:hover { background: $red-pen-dark; transform: scale(1.1) translateY(-1px); }
+}
+
+.dotDone {
+  background: $ink-blue-dark;
+  color: $paper-cream;
+  border-color: $ink-blue-dark;
+
+  &:hover { background: $ink-blue; }
+}
+
+.dotVisited {
+  background: $paper-cream;
+  color: $ink-blue;
+  border-color: $pencil-light;
+  border-style: dashed;
+}

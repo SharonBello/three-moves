@@ -1,0 +1,105 @@
+.section {
+  @include flex-col;
+  gap: $space-6;
+}
+
+// ── HEADER ─────────────────────────────────────────────────────
+.head {
+  @include flex-col;
+  gap: $space-2;
+  padding-bottom: $space-4;
+  border-bottom: 2px dashed $paper-line;
+}
+
+.headTop {
+  @include flex-between;
+  align-items: baseline;
+}
+
+.partTag {
+  font-family: $font-script;
+  font-size: 20px;
+  font-weight: $weight-bold;
+  color: $red-pen;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.duration {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  color: $ink-blue-soft;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: $text-md;
+  color: $ink-blue-soft;
+  margin: 0;
+}
+
+// ── CONTENT ────────────────────────────────────────────────────
+.content {
+  @include flex-col;
+  gap: $space-5;
+}
+
+// ── FOOTER NAV ─────────────────────────────────────────────────
+.nav {
+  @include flex-between;
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: 2px dashed $paper-line;
+}
+
+.prev, .next {
+  @include flex-start;
+  @include focus-ring;
+  gap: $space-2;
+  background: transparent;
+  color: $ink-blue-dark;
+  border: 1.5px solid $ink-blue-soft;
+  border-radius: $radius-full;
+  padding: $space-2 $space-5;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  cursor: pointer;
+  transition: all $dur-fast $ease-out;
+
+  svg { font-size: 18px; }
+
+  &:hover {
+    background: $paper-cream;
+    border-color: $ink-blue;
+    transform: translateY(-1px);
+  }
+}
+
+.next {
+  background: $red-pen;
+  color: $white;
+  border-color: $red-pen;
+  font-weight: $weight-bold;
+
+  &:hover {
+    background: $red-pen-dark;
+    border-color: $red-pen-dark;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    &:hover { transform: none; background: $red-pen; }
+  }
+}

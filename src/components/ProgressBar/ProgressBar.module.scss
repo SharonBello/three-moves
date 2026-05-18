@@ -1,0 +1,13 @@
+.track {
+  height: 4px;
+  background: rgba(44, 62, 80, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: $z-overlay;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(to left, $red-pen, $highlight, $red-pen);
+  transition: width $dur-base $ease-out;
+}

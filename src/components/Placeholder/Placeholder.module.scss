@@ -1,0 +1,34 @@
+.empty {
+  @include paper-card;
+  @include flex-col;
+  align-items: center;
+  text-align: center;
+  gap: $space-3;
+  padding: $space-7 $space-5;
+  border: 1.5px dashed $pencil-light;
+  background: transparent;
+  box-shadow: none;
+}
+
+.icon {
+  @include flex-center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: $paper-cream;
+  color: $pencil;
+  font-size: 28px;
+}
+
+.title {
+  font-family: $font-display;
+  color: $ink-blue;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+}
+
+.empty p {
+  font-size: $text-sm;
+  color: $ink-blue-soft;
+  max-width: 400px;
+}

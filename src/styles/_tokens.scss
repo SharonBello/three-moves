@@ -1,0 +1,128 @@
+// ═══════════════════════════════════════════════════════════════════
+// M04 · Sketchbook Design Tokens
+// Notebook / paper aesthetic — warm, human, hand-made.
+// Distinct from M03's cold blueprint grid.
+// ═══════════════════════════════════════════════════════════════════
+
+// ── PAPER & INK ────────────────────────────────────────────────
+$paper-kraft:       #C9B79A;   // main bg — kraft paper
+$paper-kraft-dark:  #B19F80;
+$paper-cream:       #FAF6E8;   // "white paper" cards
+$paper-cream-2:     #F5EFD9;   // sticky note variant
+$paper-line:        rgba(44, 62, 80, 0.12);  // notebook ruled lines
+
+// Ink (pen)
+$ink-blue:          #2C3E50;   // primary text
+$ink-blue-dark:     #1A2A38;   // headings
+$ink-blue-soft:     #4A5A6A;   // muted body
+
+// Pencil
+$pencil:            #555555;
+$pencil-light:      #999999;
+
+// Marker (signature accent, same as M03 for module-family identity)
+$red-pen:           #C44536;
+$red-pen-dark:      #8E2C20;
+$red-pen-pale:      #FAE0DC;
+
+// Highlighter (warm yellow)
+$highlight:         #F4D55A;
+$highlight-dark:    #C9A91D;
+$highlight-pale:    #FBEBC2;
+
+// Washi tape
+$tape-washi:        #A8C8DA;   // blue washi
+$tape-washi-dark:   #6F9AB0;
+$tape-kraft:        #D7B080;   // kraft tape
+$sticky-kraft:      #E8D4B5;   // pale kraft, for sticky-note variant
+
+// Status
+$success:           #4A8F3F;
+$success-pale:      #DDEFDA;
+$danger:            $red-pen;
+$warning:           #D89234;
+
+$white:             #FFFFFF;
+
+// ── TYPOGRAPHY ─────────────────────────────────────────────────
+$font-display:    'Suez One', 'Assistant', serif;       // Hebrew display
+$font-script:     'Caveat', cursive;                    // Latin handwritten accents
+$font-body:       'Assistant', system-ui, sans-serif;
+$font-mono:       'IBM Plex Mono', monospace;
+
+$weight-normal:   400;
+$weight-medium:   500;
+$weight-bold:     700;
+$weight-black:    900;
+
+$text-xs:         11px;
+$text-sm:         13px;
+$text-base:       15px;
+$text-md:         16px;
+$text-lg:         19px;
+$text-xl:         24px;
+$text-2xl:        32px;
+$text-3xl:        42px;
+
+$leading-tight:   1.2;
+$leading-body:    1.55;
+$leading-loose:   1.7;
+
+// ── SPACING / SIZING ───────────────────────────────────────────
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 20px;
+$radius-full: 999px;
+
+// Shadows — softer, paper-feel
+$shadow-paper:  0 1px 2px rgba(44, 62, 80, 0.06), 0 2px 4px rgba(44, 62, 80, 0.04);
+$shadow-lift:   0 2px 6px rgba(44, 62, 80, 0.1), 0 4px 12px rgba(44, 62, 80, 0.06);
+$shadow-tape:   0 1px 2px rgba(0, 0, 0, 0.08);
+$shadow-sticky: 2px 4px 8px rgba(0, 0, 0, 0.08);
+
+// Motion
+$dur-fast:      150ms;
+$dur-base:      250ms;
+$ease-out:      cubic-bezier(0.2, 0.8, 0.2, 1);
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1200px;
+
+// Borders
+$border-dash:   1px dashed $paper-line;
+$border-pencil: 1.5px solid $ink-blue-soft;
+
+// Z-index
+$z-base:    1;
+$z-raised:  10;
+$z-overlay: 100;
+$z-modal:   1000;
+
+// ── CSS CUSTOM PROPERTIES (for runtime theming) ────────────────
+:root {
+  --c-paper-kraft:    #{$paper-kraft};
+  --c-paper-cream:    #{$paper-cream};
+  --c-paper-cream-2:  #{$paper-cream-2};
+  --c-ink-blue:       #{$ink-blue};
+  --c-ink-blue-dark:  #{$ink-blue-dark};
+  --c-ink-blue-soft:  #{$ink-blue-soft};
+  --c-red-pen:        #{$red-pen};
+  --c-red-pen-pale:   #{$red-pen-pale};
+  --c-highlight:      #{$highlight};
+  --c-highlight-pale: #{$highlight-pale};
+  --c-tape-washi:     #{$tape-washi};
+  --c-tape-kraft:     #{$tape-kraft};
+}

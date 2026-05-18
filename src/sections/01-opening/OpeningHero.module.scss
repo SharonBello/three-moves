@@ -1,0 +1,84 @@
+.hero {
+  @include taped-card;
+  text-align: center;
+  padding: $space-8 $space-5 $space-6;
+
+  @include respond-to(md) {
+    padding: $space-8 $space-7 $space-7;
+  }
+}
+
+.eyebrow {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  display: inline-block;
+  transform: rotate(-1.5deg);
+  margin-bottom: $space-3;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 $space-4;
+
+  @include respond-to(md) { font-size: 52px; }
+
+  br + .accent {
+    margin-top: 0.2em;
+    display: inline-block;
+  }
+}
+
+.accent {
+  @include pen-underline($red-pen, 4px);
+  color: $red-pen;
+}
+
+.lede {
+  font-size: $text-md;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  max-width: 580px;
+  margin: 0 auto $space-5;
+
+  strong {
+    color: $ink-blue-dark;
+    font-weight: $weight-bold;
+  }
+
+  em {
+    font-style: italic;
+    color: $red-pen;
+    font-weight: $weight-medium;
+  }
+}
+
+// ── STATS ──────────────────────────────────────────────────────
+.stats {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $space-3;
+  list-style: none;
+  margin: 0;
+}
+
+.stat {
+  @include flex-start;
+  gap: $space-2;
+  background: $paper-cream-2;
+  color: $ink-blue;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  border: 1.5px solid $paper-line;
+  font-family: $font-mono;
+  font-size: $text-sm;
+
+  svg { font-size: 16px; color: $red-pen; }
+}

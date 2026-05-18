@@ -1,0 +1,133 @@
+.section {
+  @include flex-col;
+  gap: $space-5;
+  margin-top: $space-3;
+}
+
+// ── INTRO ──────────────────────────────────────────────────────
+.intro { @include flex-col; gap: $space-2; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 20px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: 1.15;
+  margin: 0;
+
+  em {
+    font-style: italic;
+    color: $red-pen;
+    font-weight: $weight-bold;
+  }
+
+  @include respond-to(md) { font-size: $text-2xl; }
+}
+
+.lede {
+  font-size: $text-md;
+  color: $ink-blue-soft;
+  line-height: $leading-loose;
+  max-width: 620px;
+}
+
+.hl {
+  @include highlighter($highlight);
+  color: $ink-blue-dark;
+  font-weight: $weight-bold;
+}
+
+// ── PAINS (sticky notes) ───────────────────────────────────────
+.pains {
+  list-style: none;
+  display: grid;
+  gap: $space-5 $space-4;
+  grid-template-columns: 1fr;
+  margin-top: $space-3;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-5;
+  }
+}
+
+.pain {
+  @include sticky-note($bg: $highlight-pale, $rotation: 0deg);
+  transform: rotate(var(--rot, 0deg));
+  @include flex-col;
+  gap: $space-3;
+  padding: $space-4 $space-5 $space-5;
+  min-height: 160px;
+  transition: transform $dur-base $ease-out;
+
+  &:hover { transform: rotate(0) translateY(-2px); }
+}
+
+.pain-yellow { background: $highlight-pale; }
+.pain-cream  { background: $paper-cream; }
+.pain-kraft  { background: $sticky-kraft; }
+
+.quote {
+  margin: 0;
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-body;
+  color: $ink-blue-dark;
+  font-weight: $weight-medium;
+}
+
+.role {
+  font-family: $font-script;
+  font-size: $text-md;
+  color: $ink-blue-soft;
+  font-style: normal;
+  align-self: flex-end;
+}
+
+// ── BRIDGE ─────────────────────────────────────────────────────
+.bridge {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-3;
+  align-items: center;
+  margin-top: $space-3;
+  padding: $space-4 $space-5;
+  background: $paper-cream;
+  border-right: 4px solid $red-pen;
+  border-radius: $radius-md;
+  box-shadow: $shadow-paper;
+}
+
+.bridgeBadge {
+  font-family: $font-mono;
+  font-size: 10px;
+  font-weight: $weight-bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: $red-pen;
+  color: $white;
+  padding: 4px $space-2;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+}
+
+.bridge p {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+
+  strong {
+    color: $ink-blue-dark;
+    font-weight: $weight-bold;
+  }
+}
