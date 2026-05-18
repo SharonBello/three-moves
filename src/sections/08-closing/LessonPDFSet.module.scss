@@ -27,7 +27,7 @@
   max-width: 640px;
 }
 
-// ── CARDS ──────────────────────────────────────────────────────
+// ── ON-SCREEN CARDS ────────────────────────────────────────────
 .cards {
   list-style: none;
   margin: 0;
@@ -48,7 +48,7 @@
   gap: $space-3;
   padding: $space-4 $space-5;
 
-  > div { @include flex-col; gap: 2px; }
+  > div { @include flex-col; gap: 2px; min-width: 0; }
 }
 
 .cardIcon {
@@ -58,6 +58,7 @@
   background: $highlight-pale;
   color: $highlight-dark;
   font-size: 24px;
+  flex-shrink: 0;
 }
 
 .cardTier {
@@ -75,6 +76,7 @@
   font-size: $text-md;
   font-weight: $weight-bold;
   color: $ink-blue-dark;
+  word-break: break-word;
 
   @include respond-to(md) { font-size: $text-lg; }
 }
@@ -85,7 +87,6 @@
   color: $ink-blue-soft;
 }
 
-// ── PRINT BUTTON ───────────────────────────────────────────────
 .printBtn {
   @include focus-ring;
   @include flex-start;
@@ -100,6 +101,7 @@
   font-weight: $weight-bold;
   cursor: pointer;
   transition: all $dur-fast $ease-out;
+  white-space: nowrap;
 
   svg { font-size: 16px; }
 
@@ -110,40 +112,87 @@
   }
 }
 
-// ── PRINT BODY (hidden on screen, visible in print) ────────────
-.printBody {
-  display: none;
+// ═══════════════════════════════════════════════════════════════
+// PORTAL CONTENT — only visible in print (parent .m04-print-host
+// has display:none on screen, display:block in print, set globally).
+// All styling here uses pt/black text for clean print output.
+// ═══════════════════════════════════════════════════════════════
+.printPage {
+  font-family: 'Assistant', sans-serif;
+  color: #111;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.printHeader {
+  border-bottom: 2pt solid #111;
+  padding-bottom: 8pt;
+  margin-bottom: 16pt;
+}
+
+.printEyebrow {
+  display: block;
+  font-family: monospace;
+  font-size: 10pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 6pt;
+}
+
+.printH1 {
+  font-family: 'Suez One', 'David', serif;
+  font-size: 22pt;
+  margin: 0 0 6pt;
+  line-height: 1.15;
+  color: #111;
 }
 
 .printMeta {
-  font-family: $font-mono;
-  font-size: 12pt;
-  color: #555;
-  margin: 0 0 12pt;
+  font-family: monospace;
+  font-size: 11pt;
+  color: #444;
+  margin: 0;
+}
+
+.printH2 {
+  font-family: 'Suez One', 'David', serif;
+  font-size: 15pt;
+  margin: 14pt 0 8pt;
+  color: #111;
+  border-bottom: 1pt solid #999;
+  padding-bottom: 4pt;
 }
 
 .printTable {
   width: 100%;
   border-collapse: collapse;
-  margin: 12pt 0;
+  margin: 4pt 0 12pt;
 
   th, td {
-    border: 1px solid #999;
+    border: 1pt solid #999;
     padding: 6pt 10pt;
     text-align: start;
     font-size: 11pt;
+    line-height: 1.5;
     vertical-align: top;
   }
 
   th {
     background: #eee;
     font-weight: bold;
-    font-family: serif;
+    font-family: 'Suez One', 'David', serif;
   }
 
   td:first-child {
     font-family: monospace;
     white-space: nowrap;
+    width: 70pt;
+  }
+
+  td:nth-child(2) {
+    width: 90pt;
   }
 }
 
@@ -152,29 +201,19 @@
   font-size: 11pt;
   line-height: 1.6;
   white-space: pre-wrap;
-  margin: 8pt 0;
-  padding: 8pt;
-  border-inline-start: 2px solid #999;
+  word-wrap: break-word;
+  margin: 4pt 0;
+  padding: 10pt 12pt;
+  border-inline-start: 2pt solid #999;
+  background: #fafafa;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// PRINT: show only the active card's content, hide UI affordances
-// ═══════════════════════════════════════════════════════════════
-@media print {
-  .cards, .head, .cardHead, .card { box-shadow: none !important; background: none !important; }
-  .printBtn, .cardIcon { display: none !important; }
-  .cardHead > div { display: none; }
-  .printBody { display: block; }
-
-  h2 {
-    font-size: 18pt !important;
-    font-family: 'Suez One', serif;
-    margin-bottom: 6pt;
-  }
-
-  h3 {
-    font-size: 14pt;
-    margin-top: 16pt;
-    margin-bottom: 6pt;
-  }
+.printFooter {
+  margin-top: 24pt;
+  padding-top: 8pt;
+  border-top: 1pt solid #ccc;
+  font-family: monospace;
+  font-size: 9pt;
+  color: #777;
+  text-align: center;
 }

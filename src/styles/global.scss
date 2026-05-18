@@ -57,11 +57,17 @@ button {
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// PRINT STYLES (used by Section 8's LessonPlanCanvas for PDF export)
+// PRINT STYLES — Section 8 PDFs use a React portal mounted to <body>.
+// In print, we hide the app root entirely and show only the portal.
 // ═══════════════════════════════════════════════════════════════════
 @page {
   size: A4;
   margin: 20mm 18mm;
+}
+
+// Portal target is hidden on screen — it only shows during print.
+.m04-print-host {
+  display: none;
 }
 
 @media print {
@@ -69,21 +75,20 @@ button {
     background: white !important;
     background-image: none !important;
     color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  body * { visibility: hidden !important; }
-  .m04-print, .m04-print * { visibility: visible !important; }
-  .m04-print {
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0;
+  // Hide the entire app — only the portal prints
+  #root { display: none !important; }
+
+  .m04-print-host {
+    display: block !important;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
   }
 
   .m04-print-field {
