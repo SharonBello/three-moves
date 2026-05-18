@@ -9,6 +9,16 @@ var config = {
             '@': path.resolve(__dirname, './src'),
         },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                hashCharacters: 'hex',
+                entryFileNames: 'assets/[name]-[hash].js',
+                chunkFileNames: 'assets/[name]-[hash].js',
+                assetFileNames: 'assets/[name]-[hash][extname]',
+            },
+        },
+    },
     css: {
         preprocessorOptions: {
             scss: {
