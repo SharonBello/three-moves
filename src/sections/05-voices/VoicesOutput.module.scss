@@ -1,0 +1,175 @@
+.section { @include flex-col; gap: $space-4; }
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+
+  @include respond-to(md) { font-size: $text-xl; }
+}
+
+.lede {
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  margin: 0;
+  max-width: 640px;
+}
+
+// ── VOICES ─────────────────────────────────────────────────────
+.voices {
+  @include flex-col;
+  gap: $space-3;
+}
+
+.voice {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $tape-washi-dark;
+  position: relative;
+}
+
+.voice:nth-child(1) { border-inline-start-color: $tape-washi-dark; }
+.voice:nth-child(2) { border-inline-start-color: $highlight-dark; }
+.voice:nth-child(3) { border-inline-start-color: $red-pen; }
+
+.voiceHead {
+  @include flex-start;
+  gap: $space-3;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+  margin-bottom: $space-3;
+  flex-wrap: wrap;
+}
+
+.voiceNum {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $ink-blue-soft;
+}
+
+.voiceWho {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.voicePerspective {
+  font-family: $font-script;
+  font-size: $text-md;
+  color: $red-pen;
+  font-weight: $weight-medium;
+}
+
+.voiceBody {
+  margin: 0;
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-loose;
+  color: $ink-blue;
+  font-style: italic;
+}
+
+// ── PROTOCOL ───────────────────────────────────────────────────
+.protocol {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $success;
+  background: rgba(74, 143, 63, 0.04);
+}
+
+.protocolHead {
+  @include flex-start;
+  gap: $space-3;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+  margin-bottom: $space-3;
+
+  > svg { font-size: 20px; color: $success; }
+  > div { flex: 1; @include flex-col; }
+
+  h4 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-md;
+    font-weight: $weight-bold;
+    color: $ink-blue-dark;
+  }
+}
+
+.protocolTag {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $success;
+}
+
+.protocolTime {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $success;
+}
+
+.protocolDesc {
+  margin: 0 0 $space-3;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+}
+
+.corners {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: $space-3;
+  grid-template-columns: 1fr;
+
+  @include respond-to(md) { grid-template-columns: 1fr 1fr; }
+}
+
+.corner {
+  padding: $space-3 $space-4;
+  background: $paper-cream-2;
+  border-radius: $radius-md;
+  border: 1px solid $paper-line;
+}
+
+.cornerLabel {
+  @include flex-start;
+  gap: $space-1;
+  font-family: $font-display;
+  font-size: $text-base;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin-bottom: $space-1;
+
+  svg { font-size: 16px; color: $red-pen; }
+}
+
+.cornerQ {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+}

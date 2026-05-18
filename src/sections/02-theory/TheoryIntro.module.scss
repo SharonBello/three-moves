@@ -1,0 +1,40 @@
+.intro {
+  @include flex-col;
+  gap: $space-3;
+}
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: 1.15;
+  margin: 0;
+
+  @include respond-to(md) { font-size: $text-2xl; }
+}
+
+.hl {
+  @include highlighter($highlight);
+  color: $ink-blue-dark;
+  font-weight: $weight-bold;
+}
+
+.lede {
+  font-size: $text-md;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  max-width: 640px;
+  margin: 0;
+
+  strong { color: $ink-blue-dark; font-weight: $weight-bold; }
+}

@@ -1,0 +1,106 @@
+.takeaway {
+  @include paper-card;
+  padding: $space-5 $space-6;
+  border-inline-start: 4px solid $highlight-dark;
+  @include flex-col;
+  gap: $space-4;
+}
+
+.takeawayHead { @include flex-col; gap: $space-2; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.takeawayTitle {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+}
+
+.takeawayLede {
+  margin: 0;
+  font-size: $text-md;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+
+  strong { color: $red-pen; font-weight: $weight-bold; }
+}
+
+.commitInput {
+  width: 100%;
+  font-family: $font-script;
+  font-size: $text-lg;
+  line-height: $leading-body;
+  color: $ink-blue-dark;
+  background: $highlight-pale;
+  border: 1.5px solid $paper-line;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  resize: vertical;
+  min-height: 64px;
+  transition: all $dur-fast $ease-out;
+
+  &::placeholder { color: $ink-blue-soft; font-style: italic; }
+  &:focus {
+    outline: none;
+    border-color: $highlight-dark;
+    box-shadow: 0 0 0 3px rgba($highlight, 0.3);
+  }
+}
+
+.finishRow {
+  display: flex;
+  justify-content: center;
+  margin-top: $space-2;
+}
+
+.finishBtn {
+  @include focus-ring;
+  @include flex-center;
+  gap: $space-2;
+  padding: $space-3 $space-7;
+  background: $ink-blue-dark;
+  color: $paper-cream;
+  border: 1.5px solid $ink-blue-dark;
+  border-radius: $radius-full;
+  font-family: $font-body;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  cursor: pointer;
+  transition: all $dur-fast $ease-out;
+
+  svg { font-size: 20px; }
+
+  &:hover {
+    background: $ink-blue;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lift;
+  }
+}
+
+.finishDone {
+  @include flex-center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  background: $success-pale;
+  border: 1.5px solid $success;
+  border-radius: $radius-full;
+  color: $success;
+  font-family: $font-display;
+  font-weight: $weight-bold;
+  font-size: $text-md;
+
+  svg { font-size: 22px; }
+}
+
+@media print {
+  .takeaway { display: none !important; }
+}

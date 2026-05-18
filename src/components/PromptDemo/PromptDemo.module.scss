@@ -1,0 +1,115 @@
+.section {
+  @include flex-col;
+  gap: $space-4;
+}
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+
+  @include respond-to(md) { font-size: $text-xl; }
+}
+
+.lede {
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  margin: 0;
+}
+
+// ── PARTS ──────────────────────────────────────────────────────
+.parts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include flex-col;
+  gap: $space-3;
+}
+
+.part {
+  @include paper-card;
+  padding: $space-3 $space-4;
+  border-inline-start: 3px solid $tape-washi;
+}
+
+.partHead {
+  @include flex-start;
+  gap: $space-2;
+  margin-bottom: $space-1;
+}
+
+.partTag {
+  font-family: $font-mono;
+  font-size: 10px;
+  font-weight: $weight-bold;
+  letter-spacing: 0.14em;
+  color: $tape-washi-dark;
+}
+
+.partHe {
+  font-family: $font-display;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.partBody {
+  margin: 0;
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-body;
+  color: $ink-blue;
+}
+
+// ── COPY ROW ───────────────────────────────────────────────────
+.copyRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copyBtn {
+  @include focus-ring;
+  @include flex-start;
+  gap: $space-2;
+  padding: $space-2 $space-5;
+  background: $ink-blue-dark;
+  color: $paper-cream;
+  border: 1.5px solid $ink-blue-dark;
+  border-radius: $radius-full;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  cursor: pointer;
+  transition: all $dur-fast $ease-out;
+
+  svg { font-size: 16px; }
+
+  &:hover {
+    background: $ink-blue;
+    border-color: $ink-blue;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lift;
+  }
+}
+
+.copyBtnDone {
+  background: $success;
+  border-color: $success;
+
+  &:hover { background: $success; border-color: $success; }
+}

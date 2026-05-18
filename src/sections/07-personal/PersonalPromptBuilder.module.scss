@@ -1,0 +1,46 @@
+.section { @include flex-col; gap: $space-4; }
+
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+
+  strong { color: $red-pen; }
+
+  @include respond-to(md) { font-size: $text-xl; }
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  max-width: 640px;
+
+  strong { color: $ink-blue-dark; font-weight: $weight-bold; }
+}
+
+.empty {
+  padding: $space-5;
+  background: $paper-cream;
+  border: 1.5px dashed $pencil-light;
+  border-radius: $radius-md;
+  color: $ink-blue-soft;
+  font-size: $text-sm;
+  text-align: center;
+
+  p { margin: 0; line-height: $leading-loose; }
+}

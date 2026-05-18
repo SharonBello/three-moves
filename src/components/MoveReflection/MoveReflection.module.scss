@@ -1,0 +1,47 @@
+.box {
+  @include sticky-note($bg: $highlight-pale, $rotation: -1deg);
+  padding: $space-4 $space-5;
+  max-width: 540px;
+  align-self: flex-start;
+  @include flex-col;
+  gap: $space-2;
+}
+
+.head {
+  @include flex-start;
+  gap: $space-2;
+}
+
+.icon {
+  @include flex-center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: $highlight;
+  color: $ink-blue-dark;
+  font-size: 16px;
+}
+
+.tag {
+  font-family: $font-mono;
+  font-size: 10px;
+  font-weight: $weight-bold;
+  letter-spacing: 0.14em;
+  color: $ink-blue-dark;
+  text-transform: uppercase;
+}
+
+.q {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: $leading-body;
+}
+
+.hint {
+  margin: 0;
+  font-family: $font-script;
+  font-size: $text-md;
+  color: $ink-blue-soft;
+}

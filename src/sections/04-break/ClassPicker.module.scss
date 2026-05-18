@@ -1,0 +1,145 @@
+.section { @include flex-col; gap: $space-5; }
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head {
+  @include flex-start;
+  gap: $space-4;
+  align-items: flex-start;
+
+  > div { flex: 1; @include flex-col; gap: $space-1; }
+}
+
+.icon {
+  @include flex-center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: $highlight-pale;
+  color: $highlight-dark;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.tag {
+  font-family: $font-script;
+  font-size: 20px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-sm;
+  color: $ink-blue-soft;
+  line-height: $leading-loose;
+}
+
+// ── FIELDS ─────────────────────────────────────────────────────
+.fields {
+  @include flex-col;
+  gap: $space-4;
+  padding: $space-5;
+  background: $paper-cream;
+  border-radius: $radius-md;
+  box-shadow: $shadow-paper;
+}
+
+.field { @include flex-col; gap: $space-1; }
+.fieldset { border: none; padding: 0; margin: 0; @include flex-col; gap: $space-2; }
+
+.label {
+  font-family: $font-display;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.opt {
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-normal;
+  color: $ink-blue-soft;
+}
+
+.input,
+.textarea {
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-body;
+  color: $ink-blue-dark;
+  background: $white;
+  border: 1.5px solid $paper-line;
+  border-radius: $radius-md;
+  padding: $space-2 $space-3;
+  transition: all $dur-fast $ease-out;
+
+  &::placeholder { color: $pencil-light; }
+
+  &:focus {
+    outline: none;
+    border-color: $red-pen;
+    box-shadow: 0 0 0 3px rgba($red-pen, 0.12);
+  }
+}
+
+.textarea { resize: vertical; min-height: 70px; }
+
+// ── AGE TIER RADIO GROUP ───────────────────────────────────────
+.ageRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-2;
+
+  @include respond-to(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.ageOption {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-4;
+  background: $white;
+  border: 1.5px solid $paper-line;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $dur-fast $ease-out;
+
+  &:hover { border-color: $pencil; }
+}
+
+.ageOptionActive {
+  border-color: $red-pen !important;
+  background: $red-pen-pale !important;
+}
+
+.ageRadio {
+  position: absolute;
+  opacity: 0;
+  width: 1px; height: 1px;
+}
+
+.ageEmoji { font-size: 22px; }
+
+.ageLabel {
+  font-family: $font-display;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.ageHint {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  color: $ink-blue-soft;
+}

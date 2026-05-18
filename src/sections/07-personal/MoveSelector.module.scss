@@ -1,0 +1,121 @@
+.section { @include flex-col; gap: $space-4; }
+
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  max-width: 640px;
+
+  strong { color: $red-pen; font-weight: $weight-bold; }
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: $space-3;
+  grid-template-columns: 1fr;
+
+  @include respond-to(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.option {
+  @include paper-card;
+  @include focus-ring;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  padding: $space-4 $space-4;
+  background: $paper-cream;
+  border: 2px solid $paper-line;
+  transition: all $dur-fast $ease-out;
+  @include flex-col;
+  gap: $space-2;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lift;
+  }
+}
+
+.tint-yellow:hover { border-color: $highlight-dark; }
+.tint-blue:hover   { border-color: $tape-washi-dark; }
+.tint-red:hover    { border-color: $red-pen; }
+
+.optionActive {
+  background: $paper-cream-2;
+
+  &.tint-yellow { border-color: $highlight-dark !important; box-shadow: 0 0 0 3px rgba($highlight, 0.18); }
+  &.tint-blue   { border-color: $tape-washi-dark !important; box-shadow: 0 0 0 3px rgba($tape-washi, 0.35); }
+  &.tint-red    { border-color: $red-pen !important;        box-shadow: 0 0 0 3px rgba($red-pen, 0.16); }
+}
+
+.optionHead {
+  @include flex-between;
+  align-items: center;
+}
+
+.optionNum {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $red-pen;
+  font-weight: $weight-bold;
+}
+
+.optionCheck {
+  @include flex-center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: $success;
+  color: $white;
+  font-size: 14px;
+}
+
+.optionName {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.optionPower {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-body;
+  color: $ink-blue;
+  font-weight: $weight-medium;
+}
+
+.optionTransform {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  color: $ink-blue-soft;
+  margin-top: $space-1;
+
+  strong { color: $red-pen; font-weight: $weight-bold; }
+}

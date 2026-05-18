@@ -1,0 +1,180 @@
+.section { @include flex-col; gap: $space-4; }
+
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+}
+
+.lede {
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  margin: 0;
+  max-width: 640px;
+}
+
+// ── CARDS ──────────────────────────────────────────────────────
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include flex-col;
+  gap: $space-3;
+}
+
+.card {
+  @include paper-card;
+  padding: 0;
+}
+
+.cardHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+
+  > div { @include flex-col; gap: 2px; }
+}
+
+.cardIcon {
+  @include flex-center;
+  width: 48px; height: 48px;
+  border-radius: $radius-md;
+  background: $highlight-pale;
+  color: $highlight-dark;
+  font-size: 24px;
+}
+
+.cardTier {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: $red-pen;
+  text-transform: uppercase;
+  font-weight: $weight-bold;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+
+  @include respond-to(md) { font-size: $text-lg; }
+}
+
+.cardMeta {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  color: $ink-blue-soft;
+}
+
+// ── PRINT BUTTON ───────────────────────────────────────────────
+.printBtn {
+  @include focus-ring;
+  @include flex-start;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: $red-pen;
+  color: $paper-cream;
+  border: 1.5px solid $red-pen;
+  border-radius: $radius-full;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  cursor: pointer;
+  transition: all $dur-fast $ease-out;
+
+  svg { font-size: 16px; }
+
+  &:hover {
+    background: $red-pen-dark;
+    border-color: $red-pen-dark;
+    transform: translateY(-1px);
+  }
+}
+
+// ── PRINT BODY (hidden on screen, visible in print) ────────────
+.printBody {
+  display: none;
+}
+
+.printMeta {
+  font-family: $font-mono;
+  font-size: 12pt;
+  color: #555;
+  margin: 0 0 12pt;
+}
+
+.printTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12pt 0;
+
+  th, td {
+    border: 1px solid #999;
+    padding: 6pt 10pt;
+    text-align: start;
+    font-size: 11pt;
+    vertical-align: top;
+  }
+
+  th {
+    background: #eee;
+    font-weight: bold;
+    font-family: serif;
+  }
+
+  td:first-child {
+    font-family: monospace;
+    white-space: nowrap;
+  }
+}
+
+.printNotes {
+  font-family: 'Assistant', sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  margin: 8pt 0;
+  padding: 8pt;
+  border-inline-start: 2px solid #999;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PRINT: show only the active card's content, hide UI affordances
+// ═══════════════════════════════════════════════════════════════
+@media print {
+  .cards, .head, .cardHead, .card { box-shadow: none !important; background: none !important; }
+  .printBtn, .cardIcon { display: none !important; }
+  .cardHead > div { display: none; }
+  .printBody { display: block; }
+
+  h2 {
+    font-size: 18pt !important;
+    font-family: 'Suez One', serif;
+    margin-bottom: 6pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-top: 16pt;
+    margin-bottom: 6pt;
+  }
+}

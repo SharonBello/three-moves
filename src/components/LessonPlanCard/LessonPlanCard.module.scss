@@ -1,0 +1,86 @@
+.card {
+  @include paper-card;
+  padding: $space-5;
+  border-top: 4px solid $success;
+}
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head {
+  @include flex-start;
+  gap: $space-3;
+  padding-bottom: $space-3;
+  border-bottom: 1px dashed $paper-line;
+  margin-bottom: $space-4;
+}
+
+.icon {
+  @include flex-center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: $success-pale;
+  color: $success;
+  font-size: 22px;
+}
+
+.titleBlock { @include flex-col; gap: 2px; }
+
+.eyebrow {
+  font-family: $font-script;
+  font-size: 18px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+}
+
+// ── BLOCKS ─────────────────────────────────────────────────────
+.blocks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include flex-col;
+  gap: $space-3;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: $space-3;
+  padding: $space-2 0;
+  border-bottom: 1px dotted $paper-line;
+
+  &:last-child { border-bottom: none; }
+}
+
+.time {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $red-pen;
+  text-align: end;
+  padding-top: 2px;
+}
+
+.text { @include flex-col; gap: 4px; }
+
+.name {
+  font-family: $font-display;
+  font-size: $text-base;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.body {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-body;
+  color: $ink-blue;
+}

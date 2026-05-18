@@ -1,0 +1,177 @@
+.section { @include flex-col; gap: $space-4; }
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+
+  @include respond-to(md) { font-size: $text-xl; }
+}
+
+.lede {
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  margin: 0;
+  max-width: 640px;
+}
+
+// ── STORIES ────────────────────────────────────────────────────
+.stories {
+  display: grid;
+  gap: $space-4;
+  grid-template-columns: 1fr;
+
+  @include respond-to(md) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.story {
+  @include paper-card;
+  padding: $space-4;
+  border-top: 3px solid $highlight-dark;
+  @include flex-col;
+  gap: $space-2;
+}
+
+.storyHead {
+  @include flex-col;
+  gap: 2px;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+}
+
+.storyNum {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: $ink-blue-soft;
+  text-transform: uppercase;
+}
+
+.storyName {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.storyCause {
+  font-family: $font-script;
+  font-size: $text-md;
+  color: $red-pen;
+  font-weight: $weight-medium;
+}
+
+.storyBody {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+}
+
+// ── DISCUSSION ─────────────────────────────────────────────────
+.discussion {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $tape-washi-dark;
+}
+
+.discussionHead {
+  @include flex-start;
+  gap: $space-2;
+  margin-bottom: $space-3;
+
+  svg { font-size: 20px; color: $tape-washi-dark; }
+
+  h4 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-md;
+    font-weight: $weight-bold;
+    color: $ink-blue-dark;
+  }
+}
+
+.qList {
+  margin: 0;
+  padding-inline-start: $space-5;
+  @include flex-col;
+  gap: $space-2;
+
+  li {
+    font-size: $text-sm;
+    line-height: $leading-loose;
+    color: $ink-blue;
+  }
+}
+
+// ── ACTIVITY ───────────────────────────────────────────────────
+.activity {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $success;
+  background: rgba(74, 143, 63, 0.04);
+}
+
+.activityHead {
+  @include flex-start;
+  gap: $space-3;
+  margin-bottom: $space-3;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+
+  > svg { font-size: 20px; color: $success; }
+
+  > div { flex: 1; @include flex-col; gap: 0; }
+
+  h4 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-md;
+    font-weight: $weight-bold;
+    color: $ink-blue-dark;
+  }
+}
+
+.activityTag {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: $success;
+  text-transform: uppercase;
+}
+
+.activityTime {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $success;
+}
+
+.stepList {
+  margin: 0;
+  padding-inline-start: $space-5;
+  @include flex-col;
+  gap: $space-2;
+
+  li {
+    font-size: $text-sm;
+    line-height: $leading-loose;
+    color: $ink-blue;
+  }
+}

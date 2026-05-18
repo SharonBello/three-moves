@@ -1,0 +1,114 @@
+.hero {
+  background: $ink-blue-dark;
+  color: $paper-cream;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-5;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(244,213,90,0.08) 1px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(168,200,218,0.08) 1px, transparent 2px);
+    background-size: 32px 32px, 40px 40px;
+    pointer-events: none;
+  }
+
+  > * { position: relative; z-index: 1; }
+
+  @media (max-width: $bp-md) { grid-template-columns: 1fr; }
+}
+
+.icon {
+  @include flex-center;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: $highlight;
+  color: $ink-blue-dark;
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.body { @include flex-col; gap: $space-2; }
+
+.eyebrow {
+  font-family: $font-script;
+  font-size: 20px;
+  color: $highlight;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  margin: 0;
+  font-family: $font-display;
+  font-weight: $weight-bold;
+  font-size: $text-2xl;
+  color: $paper-cream;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+
+  @include respond-to(md) { font-size: $text-3xl; }
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-md;
+  line-height: $leading-loose;
+  color: rgba(250, 246, 232, 0.85);
+  max-width: 580px;
+
+  strong { color: $highlight; font-weight: $weight-bold; }
+}
+
+.stats {
+  margin: $space-3 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: $space-3;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  @include flex-col;
+  gap: 2px;
+
+  dt {
+    font-family: $font-mono;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $highlight;
+  }
+
+  dd {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-xl;
+    font-weight: $weight-bold;
+    color: $paper-cream;
+
+    span {
+      font-size: $text-base;
+      color: rgba(250, 246, 232, 0.6);
+      font-weight: $weight-medium;
+    }
+  }
+}
+
+.statWide { grid-column: 1 / -1; }
+
+.statText {
+  font-size: $text-md !important;
+  word-break: break-word;
+}

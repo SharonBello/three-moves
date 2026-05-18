@@ -1,0 +1,183 @@
+.section { @include flex-col; gap: $space-4; }
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head { @include flex-col; gap: $space-1; }
+
+.tag {
+  font-family: $font-script;
+  font-size: 22px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+
+  @include respond-to(md) { font-size: $text-xl; }
+}
+
+.lede {
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+  margin: 0;
+  max-width: 640px;
+
+  strong { color: $red-pen; font-weight: $weight-bold; }
+}
+
+// ── CASES ──────────────────────────────────────────────────────
+.cases {
+  display: grid;
+  gap: $space-3;
+  grid-template-columns: 1fr;
+
+  @include respond-to(md) { grid-template-columns: 1fr 1fr; }
+}
+
+.case {
+  @include paper-card;
+  padding: $space-3 $space-4;
+  border-top: 3px solid $red-pen;
+}
+
+.caseHead {
+  @include flex-start;
+  gap: $space-3;
+  margin-bottom: $space-2;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+  flex-wrap: wrap;
+}
+
+.caseNum {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $red-pen;
+}
+
+.casePath {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+}
+
+.caseOutcome {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+}
+
+// ── VALUES ─────────────────────────────────────────────────────
+.values {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $highlight-dark;
+  background: rgba(244, 213, 90, 0.06);
+}
+
+.valuesHead {
+  @include flex-start;
+  gap: $space-3;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+  margin-bottom: $space-3;
+
+  > svg { font-size: 20px; color: $highlight-dark; }
+  > div { flex: 1; @include flex-col; }
+
+  h4 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-md;
+    font-weight: $weight-bold;
+    color: $ink-blue-dark;
+  }
+}
+
+.valuesTag {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $highlight-dark;
+}
+
+.valueGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: $space-2;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond-to(sm) { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to(md) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.valueCard {
+  padding: $space-2 $space-3;
+  background: $paper-cream;
+  border: 1.5px solid $highlight-dark;
+  border-radius: $radius-md;
+  font-family: $font-display;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  text-align: center;
+  transform: rotate(-0.5deg);
+  transition: transform $dur-fast $ease-out;
+
+  &:hover { transform: rotate(0) translateY(-2px); box-shadow: $shadow-paper; }
+  &:nth-child(3n+2) { transform: rotate(0.8deg); }
+  &:nth-child(5n+3) { transform: rotate(-1deg); }
+}
+
+// ── CLOSING QUESTIONS ──────────────────────────────────────────
+.questions {
+  @include paper-card;
+  padding: $space-4 $space-5;
+  border-inline-start: 4px solid $success;
+}
+
+.questionsHead {
+  @include flex-start;
+  gap: $space-2;
+  padding-bottom: $space-2;
+  border-bottom: 1px dashed $paper-line;
+  margin-bottom: $space-3;
+
+  svg { font-size: 20px; color: $success; }
+
+  h4 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $text-md;
+    font-weight: $weight-bold;
+    color: $ink-blue-dark;
+  }
+}
+
+.qList {
+  margin: 0;
+  padding-inline-start: $space-5;
+  @include flex-col;
+  gap: $space-2;
+
+  li {
+    font-size: $text-sm;
+    line-height: $leading-loose;
+    color: $ink-blue;
+  }
+}

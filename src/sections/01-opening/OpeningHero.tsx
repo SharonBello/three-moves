@@ -12,7 +12,7 @@ const OpeningHero: React.FC = () => (
     <span className={styles.eyebrow}>M04 · three moves</span>
 
     <h1 className={styles.title}>
-     השיעור הכי משמעותי
+      השיעור הכי משמעותי
       <br />
       <span className={styles.accent}>הכנה מהירה</span>
     </h1>

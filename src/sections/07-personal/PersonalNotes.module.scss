@@ -1,0 +1,67 @@
+.section { @include flex-col; gap: $space-3; }
+
+.head {
+  @include flex-start;
+  gap: $space-3;
+  align-items: flex-start;
+
+  > div { flex: 1; @include flex-col; gap: 2px; }
+}
+
+.icon {
+  @include flex-center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: $tape-washi;
+  color: $ink-blue-dark;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.tag {
+  font-family: $font-script;
+  font-size: 18px;
+  color: $red-pen;
+  font-weight: $weight-bold;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.title {
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-md;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+
+  @include respond-to(md) { font-size: $text-lg; }
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue-soft;
+}
+
+.textarea {
+  width: 100%;
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $leading-body;
+  color: $ink-blue-dark;
+  background: $paper-cream;
+  border: 1.5px solid $paper-line;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  resize: vertical;
+  min-height: 200px;
+  transition: all $dur-fast $ease-out;
+
+  &::placeholder { color: $pencil-light; }
+  &:focus {
+    outline: none;
+    border-color: $red-pen;
+    box-shadow: 0 0 0 3px rgba($red-pen, 0.12);
+  }
+}

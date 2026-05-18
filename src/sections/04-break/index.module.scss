@@ -1,0 +1,35 @@
+.banner {
+  @include flex-start;
+  gap: $space-4;
+  padding: $space-5;
+  background: $highlight-pale;
+  border-radius: $radius-md;
+  border-inline-start: 4px solid $highlight-dark;
+
+  > div { flex: 1; @include flex-col; gap: $space-1; }
+}
+
+.icon {
+  @include flex-center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: $highlight;
+  color: $ink-blue-dark;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  margin: 0;
+}
+
+.lede {
+  margin: 0;
+  font-size: $text-sm;
+  line-height: $leading-loose;
+  color: $ink-blue;
+}

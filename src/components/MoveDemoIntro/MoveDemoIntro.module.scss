@@ -1,0 +1,114 @@
+.hero {
+  @include paper-card;
+  padding: $space-5 $space-5 $space-4;
+  border-top: 4px solid $red-pen;
+  @include flex-col;
+  gap: $space-3;
+}
+
+// Tint variants — top accent border + small bg wash
+.tint-yellow {
+  border-top-color: $highlight-dark;
+  background: linear-gradient(to bottom, $highlight-pale 0%, $paper-cream 80px);
+}
+
+.tint-blue {
+  border-top-color: $tape-washi-dark;
+  background: linear-gradient(to bottom, rgba(168, 200, 218, 0.3) 0%, $paper-cream 80px);
+}
+
+.tint-red {
+  border-top-color: $red-pen;
+  background: linear-gradient(to bottom, $red-pen-pale 0%, $paper-cream 80px);
+}
+
+// ── HEAD ───────────────────────────────────────────────────────
+.head {
+  @include flex-between;
+  align-items: baseline;
+}
+
+.num {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  font-weight: $weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $red-pen;
+}
+
+.age {
+  @include flex-start;
+  gap: $space-1;
+  font-family: $font-script;
+  font-size: 20px;
+  color: $ink-blue-dark;
+  font-weight: $weight-bold;
+}
+
+// ── NAME ───────────────────────────────────────────────────────
+.name {
+  @include flex-col;
+  gap: 2px;
+  margin: 0;
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $weight-bold;
+  color: $ink-blue-dark;
+  line-height: 1.1;
+}
+
+.nameEn {
+  font-family: $font-script;
+  font-size: $text-lg;
+  color: $red-pen;
+  font-weight: $weight-medium;
+}
+
+// ── SUPERPOWER ─────────────────────────────────────────────────
+.superpower {
+  @include flex-start;
+  gap: $space-2;
+  margin: 0;
+  font-size: $text-md;
+  line-height: $leading-body;
+  color: $ink-blue;
+  font-weight: $weight-medium;
+}
+
+.boltIcon {
+  font-size: 20px;
+  color: $red-pen;
+  flex-shrink: 0;
+}
+
+// ── TOPIC ──────────────────────────────────────────────────────
+.topic {
+  @include flex-col;
+  gap: 2px;
+  margin-top: $space-2;
+  padding: $space-3 $space-4;
+  background: $paper-cream-2;
+  border-radius: $radius-md;
+  border-right: 3px solid $red-pen;
+}
+
+.topicLabel {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $ink-blue-soft;
+}
+
+.topicValue {
+  font-family: $font-display;
+  font-size: $text-md;
+  color: $ink-blue-dark;
+  font-weight: $weight-bold;
+}
+
+.topicGrade {
+  color: $ink-blue-soft;
+  font-weight: $weight-medium;
+}
